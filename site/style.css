@@ -233,6 +233,11 @@ body.newsletter main a { color: var(--newsletter); font-weight: 600; text-decora
     border-radius: 4px;
     text-align: center;
   }
+    .video-wrapper {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 }
 
 /* Extra small screen adjustments */
