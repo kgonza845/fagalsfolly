@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>City Council Committee Meeting – March 16, 2026</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<body class="committee">
+
+  <nav class="top-nav">
+   <a class="council" href="/council-meetings/">Council Meetings</a>
+ <a class="committee" href="/committee-meetings/">Committee Meetings</a>
+    <a class="newsletter" href="/newsletter">Newsletter</a>
+  </nav>
+
+<header>
+  <h1>City Council Committee Meeting – March 16, 2026</h1>
+
+<p class><a href=https://www.cityofschenectady.gov/AgendaCenter/ViewFile/Agenda/_03162026-1407>Agenda</a>. Navigate the video via the time stamps below</p
+
+
+
+<main class="meeting-layout">
+
+  <!-- Video Player -->
+  <div id="player-container">
+    <video id="meetingVideo" controls>
+      <source src="https://archive.org/download/videoplayback_20260407_0214/videoplayback.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+<!-- Chapters Sidebar -->
+<aside id="chapters">
+
+  <div class="chapter section-title">Government Operations</div>
+
+  <div class="chapter" data-time="1382">
+    <span class="time">23:02</span>
+    <span class="label">DSIC Appointments</span>
+  </div>
+
+  <div class="chapter" data-time="1503">
+    <span class="time">25:03</span>
+    <span class="label">Planning Commission Appointment</span>
+  </div>
+
+  <div class="chapter" data-time="1564">
+    <span class="time">26:04</span>
+    <span class="label">Recreation Advisory Committee Appointment</span>
+  </div>
+
+  <div class="chapter section-title">Health & Recreation</div>
+
+  <div class="chapter" data-time="1806">
+    <span class="time">30:06</span>
+    <span class="label">Resolution: Schenectady Food Council</span>
+  </div>
+
+  <div class="chapter section-title">City Development & Planning</div>
+
+  <div class="chapter" data-time="1903">
+    <span class="time">31:43</span>
+    <span class="label">Award Bid: Crane/Chrisler/Main Intersection</span>
+  </div>
+
+  <div class="chapter" data-time="1962">
+    <span class="time">32:42</span>
+    <span class="label">SEQRA: Jay Street Connector</span>
+  </div>
+
+  <div class="chapter" data-time="2050">
+    <span class="time">34:10</span>
+    <span class="label">Revocable Permit #694 – 508 State St</span>
+  </div>
+
+  <div class="chapter" data-time="2085">
+    <span class="time">34:45</span>
+    <span class="label">Ceremonial Resolution – Hibernians</span>
+  </div>
+
+  <div class="chapter" data-time="2120">
+    <span class="time">35:20</span>
+    <span class="label">Neighborhood Revitalization Strategy Area Review</span>
+  </div>
+
+  <div class="chapter" data-time="2153">
+    <span class="time">35:53</span>
+    <span class="label">Discussion: LazGo Parking System</span>
+  </div>
+
+  <div class="chapter" data-time="2525">
+    <span class="time">42:05</span>
+    <span class="label">Discussion: Solid Waste Code 161‑20 + Bulk Sticker Program</span>
+  </div>
+
+  <div class="chapter" data-time="5115">
+    <span class="time">85:15</span>
+    <span class="label">Amend Resolutions – Land Bank (5 Properties) + Sale of Multiple Vacant Lots</span>
+  </div>
+
+
+  <div class="chapter section-title">Other</div>
+
+  <div class="chapter" data-time="5385">
+    <span class="time">89:30</span>
+    <span class="label">Recess</span>
+  </div>
+
+  <div class="chapter" data-time="0">
+    <span class="label">Remaining Items to Executive Committee</span>
+  </div>
+
+</aside>
+
+
+
+
+
+</main>
+
+<script>
+  const video = document.getElementById("meetingVideo");
+
+  document.querySelectorAll(".chapter").forEach(ch => {
+    ch.addEventListener("click", () => {
+      if (!ch.dataset.time) return; // ignore section titles
+      video.currentTime = ch.dataset.time;
+      video.play();
+    });
+  });
+</script>
+
+</body>
+</html>
+
+

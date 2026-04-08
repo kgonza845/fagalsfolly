@@ -1,0 +1,245 @@
+/* --------------------------------------------------
+   FONT IMPORT
+-------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* --------------------------------------------------
+   COLOR VARIABLES
+-------------------------------------------------- */
+:root {
+  --text: #49484F;
+  --bg: #FFFFF9;
+  --max-width: 1100px;
+
+  --council: #D2A62C;      /* rusty gold */
+  --committee: #C75F52;    /* reddish */
+  --newsletter: #86A9C8;   /* soft civic blue */
+
+  --underline-thickness: 6px;
+}
+
+/* --------------------------------------------------
+   GLOBAL RESET & BASE
+-------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 20px;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --------------------------------------------------
+   SITE HEADER
+-------------------------------------------------- */
+.site-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 0;
+  border-bottom: 2px solid rgba(73,72,79,0.08);
+  margin-bottom: 50px;
+}
+
+.site-title-group { text-align: center; margin-bottom: 40px; }
+
+.site-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.site-subtitle {
+  font-size: 1.1rem;
+  font-style: italic;
+  opacity: 0.7;
+  margin-top: 8px;
+}
+
+/* --------------------------------------------------
+   NAVIGATION
+-------------------------------------------------- */
+.top-nav {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+}
+
+.top-nav a {
+  position: relative;
+  display: inline-block;
+  padding: 12px 10px 18px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: var(--underline-thickness) solid transparent;
+  transition: opacity 0.2s ease;
+}
+
+.top-nav a.council    { border-bottom-color: var(--council); }
+.top-nav a.committee  { border-bottom-color: var(--committee); }
+.top-nav a.newsletter { border-bottom-color: var(--newsletter); }
+
+.top-nav a:hover { opacity: 0.85; }
+
+/* --------------------------------------------------
+   INDEX PAGE LISTS (Shared Styles)
+-------------------------------------------------- */
+.index-layout h2 {
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 6px;
+}
+
+.meeting-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.meeting-list li {
+  margin-bottom: 0; /* Handled by link padding for better touch */
+  padding: 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.meeting-list a {
+  display: block;
+  padding: 15px 0;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: all 0.2s ease;
+}
+
+/* Category Specific Colors */
+body.committee h2 { color: var(--committee); border-bottom: 3px solid var(--committee); }
+body.committee .meeting-list a { color: var(--committee); }
+body.committee .meeting-list a:hover { color: #a94a42; padding-left: 8px; }
+
+body.council h2 { color: var(--council); border-bottom: 3px solid var(--council); }
+body.council .meeting-list a { color: var(--council); }
+body.council .meeting-list a:hover { color: #b88f1f; padding-left: 8px; }
+
+body.newsletter h2 { color: var(--newsletter); border-bottom: 3px solid var(--newsletter); }
+body.newsletter .meeting-list a { color: var(--newsletter); }
+body.newsletter .meeting-list a:hover { color: #5f86b0; padding-left: 8px; }
+
+/* --------------------------------------------------
+   MEETING PAGE CHAPTER LIST
+-------------------------------------------------- */
+.meeting-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.video-wrapper {
+  width: 100%;
+  max-width: 900px;
+}
+
+#chapters {
+  width: 100%;
+  max-width: 900px;
+  margin-top: 30px;
+}
+
+.chapter {
+  display: flex;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.chapter:hover { background: rgba(0,0,0,0.02); }
+
+.chapter .time {
+  font-weight: 700;
+  min-width: 65px;
+  font-size: 1.05rem;
+}
+
+body.council .time { color: var(--council); }
+body.committee .time { color: var(--committee); }
+body.newsletter .time { color: var(--newsletter); }
+
+/* Main content link general styling */
+main a { transition: color 0.2s ease; }
+body.committee main a { color: var(--committee); font-weight: 600; text-decoration: none; }
+body.council main a   { color: var(--council); font-weight: 600; text-decoration: none; }
+body.newsletter main a { color: var(--newsletter); font-weight: 600; text-decoration: none; }
+
+/* --------------------------------------------------
+   MOBILE RESPONSIVENESS (Optimized)
+-------------------------------------------------- */
+@media (max-width: 800px) {
+  .site-header { 
+    padding: 40px 15px; 
+    margin-bottom: 30px;
+  }
+
+  .top-nav {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .top-nav a {
+    width: 100%;
+    text-align: center;
+    padding: 16px 12px;
+    font-size: 1.1rem;
+    border-bottom-width: 4px; /* Slightly thinner lines for mobile balance */
+  }
+
+  /* List Improvements */
+  .meeting-list a {
+    font-size: 1.15rem;
+    padding: 20px 5px; /* Large touch target */
+  }
+
+  /* Chapter Improvements */
+  .chapter {
+    gap: 12px;
+    padding: 18px 0;
+    align-items: flex-start; /* Keeps time aligned with top of wrapped text */
+  }
+
+  .chapter .time {
+    min-width: 70px;
+    font-size: 1rem;
+    background: rgba(0,0,0,0.04);
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-align: center;
+  }
+}
+
+/* Extra small screen adjustments */
+@media (max-width: 480px) {
+  body { padding: 15px; }
+  .site-title { font-size: 1.3rem; }
+  .site-subtitle { font-size: 1rem; }
+}
+
+

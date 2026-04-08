@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>City Council Committee Meeting – April 6, 2026</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<body class="committee">
+
+  <nav class="top-nav">
+   <a class="council" href="/council-meetings/">Council Meetings</a>
+ <a class="committee" href="/committee-meetings/">Committee Meetings</a>
+    <a class="newsletter" href="/newsletter">Newsletter</a>
+  </nav>
+
+<header>
+  <h1>City Council Committee Meeting – April 06, 2026</h1>
+
+<p class><a href=https://www.cityofschenectady.gov/AgendaCenter/ViewFile/Agenda/_04062026-1413>Agenda</a>. Navigate the video via the time stamps below</p
+
+
+
+<main class="meeting-layout">
+
+  <!-- Video Player -->
+<div id="player-container" class="video-wrapper">
+  <video id="meetingVideo" controls>
+    <source src="https://archive.org/download/videoplayback-1_20260407_2117/videoplayback%20%281%29.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+
+<!-- Chapters Sidebar -->
+<aside id="chapters">
+
+  <div class="chapter section-title">Presentation</div>
+
+  <div class="chapter" data-time="1124">
+    <span class="time">18:44</span>
+    <span class="label">SUNY Albany Center for Technology in Government (CTG) — Community Asset Tracker: Assisting Code Enforcement with Technology</span>
+  </div>
+
+  <div class="chapter section-title">Finance</div>
+
+  <div class="chapter" data-time="2193">
+    <span class="time">36:33</span>
+    <span class="label">ABAC for Globe Firefighting Gear</span>
+  </div>
+
+  <div class="chapter" data-time="2388">
+    <span class="time">39:48</span>
+    <span class="label">Grant Award – 2025-2026 Discovery Reform</span>
+  </div>
+
+  <div class="chapter" data-time="2490">
+    <span class="time">41:30</span>
+    <span class="label">Duryce Community Foundation – ARPA Fund Recapture and Reprogramming</span>
+  </div>
+
+  <div class="chapter" data-time="2880">
+    <span class="time">48:00</span>
+    <span class="label">Revised Green Fees and Rates at the Schenectady Municipal Golf Course</span>
+  </div>
+
+  <div class="chapter" data-time="2971">
+    <span class="time">49:31</span>
+    <span class="label">Empire State Development Connectivity Mobile Service Incentive Proposal for Approval</span>
+  </div>
+
+  <div class="chapter section-title">City Development & Planning</div>
+
+  <div class="chapter" data-time="3266">
+    <span class="time">54:26</span>
+    <span class="label">CPH - Zoning of Battery Energy Storage Systems</span>
+  </div>
+
+  <div class="chapter" data-time="3367">
+    <span class="time">56:07</span>
+    <span class="label">Recognition of Arbor Day</span>
+  </div>
+
+  <div class="chapter" data-time="3424">
+    <span class="time">57:04</span>
+    <span class="label">Award Bid and Contract for Signage &amp; Wayfinding Re-Bid — Base Bid &amp; Alt #1</span>
+  </div>
+
+  <div class="chapter" data-time="3725">
+    <span class="time">62:05</span>
+    <span class="label">CR - Honoring the Ladies Ancient Order of Hibernians (LAOH)</span>
+  </div>
+
+  <div class="chapter" data-time="3814">
+    <span class="time">63:34</span>
+    <span class="label">CR - Recognizing Earth Day</span>
+  </div>
+
+  <div class="chapter" data-time="3848">
+    <span class="time">64:08</span>
+    <span class="label">CR - You, Me, and Poetry Festival: Literacy, Liberation, Community</span>
+  </div>
+
+  <div class="chapter" data-time="3899">
+    <span class="time">64:59</span>
+    <span class="label">CPH - Adopting a Community Police Hiring Panel</span>
+  </div>
+
+  <div class="chapter" data-time="4215">
+    <span class="time">70:15</span>
+    <span class="label">Discussion - City Code Chapter 161-21 Public Collection and Disposal of Solid Waste + Bulk Trash Sticker Program</span>
+  </div>
+
+
+<div class="chapter" data-time="6502">
+  <span class="time">1:48:22</span>
+  <span class="label">Reappointment of Board Assessment Review Member</span>
+</div>
+
+<div class="chapter" data-time="6947">
+  <span class="time">1:55:47</span>
+  <span class="label">Fees for Redemptions</span>
+</div>
+
+  <div class="chapter section-title">Other</div>
+
+  <div class="chapter" data-time="9360">
+    <span class="time">2:36:00</span>
+    <span class="label">Recess</span>
+  </div>
+
+  <div class="chapter" data-time="0">
+    <span class="label">Remaining Items to Executive Committee</span>
+  </div>
+
+</aside>
+
+
+
+
+
+
+<script>
+  const video = document.getElementById("meetingVideo");
+
+  document.querySelectorAll(".chapter").forEach(ch => {
+    ch.addEventListener("click", () => {
+      if (!ch.dataset.time) return; // ignore section titles
+      video.currentTime = ch.dataset.time;
+      video.play();
+    });
+  });
+</script>
+
+</body>
+</html>
+
+
