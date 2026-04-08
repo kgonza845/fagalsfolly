@@ -38,6 +38,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Responsive video container — applies to all screen sizes */
+.video-wrapper {
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+}
+
+
 /* --------------------------------------------------
    SITE HEADER
 -------------------------------------------------- */
@@ -233,17 +250,6 @@ body.newsletter main a { color: var(--newsletter); font-weight: 600; text-decora
     border-radius: 4px;
     text-align: center;
   }
-    .video-wrapper {
-  aspect-ratio: 16 / 9; 
-  width: 100%;         
-}
-.video-wrapper iframe,
-.video-wrapper video {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-}
 }
 
 /* Extra small screen adjustments */
