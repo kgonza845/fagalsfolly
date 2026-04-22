@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>City Council Committee Meeting – April 20, 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+
+</body>
+
+<body class="committee">
+
+  <nav class="top-nav">
+    <a class="council" href="/council-meetings/">Council Meetings</a>
+    <a class="committee" href="/committee-meetings/">Committee Meetings</a>
+    <a class="newsletter" href="/newsletter">Newsletter</a>
+  </nav>
+
+<header>
+  <h1>City Council Committee Meeting – April 20, 2026</h1>
+  
+<p class><a href=https://www.cityofschenectady.gov/AgendaCenter/ViewFile/Agenda/_04202026-1417>Agenda</a>. Navigate the video via the time stamps below</p
+
+
+
+<main class="meeting-layout">
+
+<div id="player-container" class="video-wrapper">
+  <video id="meetingVideo" controls>
+    <source src="https://archive.org/download/schenectady-city-council-committee-meeting-full-april-20-2026-640x-360-avc-1-mp-4a/Schenectady City Council Committee Meeting FULL, April 20, 2026-640x360-avc1-mp4a.ia.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<!-- Chapters Sidebar -->
+<aside id="chapters">
+
+  <div class="chapter section-title">Presentation</div>
+
+  <div class="chapter" data-time="1200">
+    <span class="time">20:00</span>
+    <span class="label">Discussion - Composting in Schenectady</span>
+  </div>
+
+  <div class="chapter section-title">Public Safety</div>
+
+  <div class="chapter" data-time="2300">
+    <span class="time">38:20</span>
+    <span class="label">STRIVE Year 2 Grant</span>
+  </div>
+
+  <div class="chapter section-title">Health & Recreation</div>
+
+  <div class="chapter" data-time="2496">
+    <span class="time">41:36</span>
+    <span class="label">Update - Riverside Park (Skatepark) Funding</span>
+  </div>
+
+  <div class="chapter section-title">Government Operations</div>
+
+  <div class="chapter" data-time="3080">
+    <span class="time">51:20</span>
+    <span class="label">Support for the Harriet Tubman Underground Railroad Byway in New York State</span>
+  </div>
+
+  <div class="chapter section-title">Public Service & Utilities</div>
+
+  <div class="chapter" data-time="3253">
+    <span class="time">54:13</span>
+    <span class="label">Discussion - City's MS4 Program</span>
+  </div>
+
+  <div class="chapter section-title">City Development & Planning</div>
+
+  <div class="chapter" data-time="4745">
+    <span class="time">1:19:05</span>
+    <span class="label">ABAC - Jay Street Connector</span>
+  </div>
+
+  <div class="chapter" data-time="4940">
+    <span class="time">1:22:20</span>
+    <span class="label">Award Bidding Contract - Crack Sealing of Select City Streets 2026</span>
+  </div>
+
+  <div class="chapter" data-time="4995">
+    <span class="time">1:23:15</span>
+    <span class="label">ABAC - 2026 Schenectady CHIPS Paving Program</span>
+  </div>
+
+  <div class="chapter" data-time="5147">
+    <span class="time">1:25:47</span>
+    <span class="label">ABAC - Schenectady Police Department Generator Replacement</span>
+  </div>
+
+  <div class="chapter" data-time="5384">
+    <span class="time">1:29:44</span>
+    <span class="label">Discussion - City Code Chapter 161-21 Public Collection & Disposal of Solid Waste</span>
+  </div>
+
+  <div class="chapter" data-time="8443">
+    <span class="time">2:20:43</span>
+    <span class="label">Reminder - Amend Section 9-6 of the Schenectady City Code to Increase the Membership of the
+Downtown Special Assessment District Board from Nine to Fifteen Members and to Amend
+Such Membership Qualifications (Public Hearing will be on April 27, 2026)r</span>
+  </div>
+
+  <div class="chapter section-title">Recess</div>
+
+  <div class="chapter" data-time="8463">
+    <span class="time">2:21:03</span>
+    <span class="label">Recess</span>
+  </div>
+
+  <div class="chapter section-title">Remaining Items to Executive Committee</div>
+
+</aside>
+
+<script>
+  const video = document.getElementById("meetingVideo");
+
+  document.querySelectorAll(".chapter").forEach(ch => {
+    ch.addEventListener("click", () => {
+      if (!ch.dataset.time) return; // ignore section titles
+      video.currentTime = ch.dataset.time;
+      video.play();
+    });
+  });
+</script>
+
+</body>
+</html>
