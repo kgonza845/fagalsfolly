@@ -259,12 +259,12 @@ body.newsletter main a { color: var(--newsletter); font-weight: 600; text-decora
   .site-subtitle { font-size: 1rem; }
 }
 
-.flex-container {
+.flex-label {
   display: flex;
   flex-flow: row wrap;
 }
 
-.container div {
+.label div {
   width: 100px;
   margin: 10px;
   padding: 10px;
