@@ -259,17 +259,15 @@ body.newsletter main a { color: var(--newsletter); font-weight: 600; text-decora
   .site-subtitle { font-size: 1rem; }
 }
 
-/* --------------------------------------------------
-   CHAPTER SUMMARY FIX
--------------------------------------------------- */
 .chapter .summary {
-  display: block;
+  flex-basis: 100%;
   margin-left: 80px;
   margin-top: 4px;
   font-size: 0.95rem;
   line-height: 1.35;
   color: #555;
 }
+
 
 
 
