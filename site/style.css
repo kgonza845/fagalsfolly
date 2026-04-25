@@ -261,12 +261,13 @@ body.newsletter main a { color: var(--newsletter); font-weight: 600; text-decora
 
 .chapter .summary {
   flex-basis: 100%;
-  margin-left: 80px;
+  margin-left: 80px; /* aligns under the label, not under the time */
   margin-top: 4px;
   font-size: 0.95rem;
   line-height: 1.35;
   color: #555;
 }
+
 
 
 
