@@ -261,7 +261,7 @@ body.newsletter main a { color: var(--newsletter); font-weight: 600; text-decora
 
 .flex-label {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column;
 }
 
 .label div {
