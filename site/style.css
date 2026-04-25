@@ -259,12 +259,6 @@ body.newsletter main a { color: var(--newsletter); font-weight: 600; text-decora
   .site-subtitle { font-size: 1rem; }
 }
 
-.label {
-  border: 2px dotted rgb(96 139 168);
-  display: flex;
-  flex-direction: column-reverse;
-}
-
 
 
 
