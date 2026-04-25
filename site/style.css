@@ -259,7 +259,7 @@ body.newsletter main a { color: var(--newsletter); font-weight: 600; text-decora
   .site-subtitle { font-size: 1rem; }
 }
 
-.flex-label {
+.label {
   display: flex;
   flex-flow: column;
 }
@@ -268,7 +268,7 @@ body.newsletter main a { color: var(--newsletter); font-weight: 600; text-decora
   width: 100px;
   margin: 10px;
   padding: 10px;
-  text-align: center;  
+  text-align: left;  
   font-size: 30px;
 }
 
