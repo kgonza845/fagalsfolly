@@ -117,10 +117,6 @@
 
 
 
-
-
-</main>
-
 <script>
   const video = document.getElementById("meetingVideo");
 
@@ -132,6 +128,20 @@
     });
   });
 </script>
+
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+  const video = document.getElementById("meetingVideo");
+  const hash = window.location.hash;
+
+  if (hash && hash.startsWith("#t=")) {
+    const seconds = parseInt(hash.replace("#t=", ""), 10);
+    video.currentTime = seconds;
+    video.play();
+  }
+});
+</script>
+
 
 </body>
 </html>

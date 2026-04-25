@@ -117,6 +117,8 @@ Such Membership Qualifications (Public Hearing will be on April 27, 2026)</span>
 
 </aside>
 
+
+
 <script>
   const video = document.getElementById("meetingVideo");
 
@@ -127,6 +129,19 @@ Such Membership Qualifications (Public Hearing will be on April 27, 2026)</span>
       video.play();
     });
   });
+</script>
+
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+  const video = document.getElementById("meetingVideo");
+  const hash = window.location.hash;
+
+  if (hash && hash.startsWith("#t=")) {
+    const seconds = parseInt(hash.replace("#t=", ""), 10);
+    video.currentTime = seconds;
+    video.play();
+  }
+});
 </script>
 
 </body>
