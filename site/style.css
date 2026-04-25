@@ -186,7 +186,10 @@ body.newsletter .meeting-list a:hover { color: #5f86b0; padding-left: 8px; }
   border-bottom: 1px solid rgba(0,0,0,0.05);
   cursor: pointer;
   transition: background 0.2s ease;
+
+  flex-wrap: wrap;
 }
+
 
 .chapter:hover { background: rgba(0,0,0,0.02); }
 
@@ -272,6 +275,14 @@ body.newsletter main a { color: var(--newsletter); font-weight: 600; text-decora
   font-size: 30px;
 }
 
+.chapter .summary {
+  flex-basis: 100%;   /* take full width on next line */
+  margin-left: 80px;  /* align under label, not under time */
+  margin-top: 4px;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: #555;
+}
 
 
 
