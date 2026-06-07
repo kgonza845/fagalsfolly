@@ -22,11 +22,8 @@
 
 
 <header>
- <h1>City Council Committee Meeting – May 18, 2025</h1>
- <p class><a href=https://www.cityofschenectady.gov/AgendaCenter/ViewFile/Agenda/_05182026-1425>Agenda</a>. Navigate the video via the time stamps below</p
-
-
-
+ <h1>City Council Committee Meeting – June 1, 2026</h1>
+ <p class><a href=https://www.cityofschenectady.gov/AgendaCenter/ViewFile/Agenda/_06012026-1428>Agenda</a>. Navigate the video via the time stamps below</p
 
 
 
@@ -113,44 +110,54 @@
  </div>
 
 
+
+
 </aside>
 
-
-
-
-
-
+<!-- YouTube scripts go HERE -->
+<script src="https://www.youtube.com/iframe_api"></script>
 <script>
- const video = document.getElementById("meetingVideo");
-
-
- document.querySelectorAll(".chapter").forEach(ch => {
-   ch.addEventListener("click", () => {
-     if (!ch.dataset.time) return; // ignore section titles
-     video.currentTime = ch.dataset.time;
-     video.play();
-   });
- });
+  let ytPlayer;
+  function onYouTubeIframeAPIReady() {
+    ytPlayer = new YT.Player('meetingVideo');
+  }
 </script>
 
-
 <script>
-window.addEventListener("DOMContentLoaded", () => {
- const video = document.getElementById("meetingVideo");
- const hash = window.location.hash;
+document.querySelectorAll(".chapter").forEach(ch => {
+  ch.addEventListener("click", () => {
+    if (!ch.dataset.time) return;
 
+    const seconds = parseInt(ch.dataset.time, 10);
 
- if (hash && hash.startsWith("#t=")) {
-   const seconds = parseInt(hash.replace("#t=", ""), 10);
-   video.currentTime = seconds;
-   video.play();
- }
+    if (window.ytPlayer) {
+      ytPlayer.seekTo(seconds, true);
+      ytPlayer.playVideo();
+
+      // Update URL automatically
+      history.replaceState(null, "", "#t=" + seconds);
+    }
+  });
 });
 </script>
 
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+  const hash = window.location.hash;
+  if (hash && hash.startsWith("#t=")) {
+    const seconds = parseInt(hash.replace("#t=", ""), 10);
+    const wait = setInterval(() => {
+      if (window.ytPlayer) {
+        ytPlayer.seekTo(seconds, true);
+        ytPlayer.playVideo();
+        clearInterval(wait);
+      }
+    }, 200);
+  }
+});
+</script>
 
 </body>
 </html>
-
 
 

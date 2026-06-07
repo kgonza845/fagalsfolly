@@ -17,7 +17,7 @@
 
 <header>
   <h1>City Council Meeting – May 26, 2026</h1>
-  <p><a href="https://www.cityofschenectady.gov/AgendaCenter/ViewFile/Agenda/_05262026-1427">Agenda</a>. Navigate the video via the time stamps below.</p>
+  <p><a href="https://www.cityofschenectady.gov/AgendaCenter/ViewFile/Agenda/_05262026-1427">Agenda</a>. Navigate the video via the time stamps below. Apologies for any name spelling errors!</p>
 </header>
 
 <main class="meeting-layout">
@@ -249,8 +249,8 @@
 
   <div class="chapter" data-time="5679">
     <div class="time">1:34:39</div>
-    <div class="label">Public Comment – Anthony Curado (warning: serious anti-LGBTQIA rhetoric)</div>
-    <div class="summary">Curado's comments contained anti-LGBTQIA rhetoric which I will not amplify by summarizing here.</div>
+    <div class="label">Public Comment – Anthony Curata (warning: serious anti-LGBTQIA rhetoric)</div>
+    <div class="summary">Curata's comments contained anti-LGBTQIA rhetoric which I will not amplify by summarizing here.</div>
   </div>
 
 
@@ -326,9 +326,16 @@
 document.querySelectorAll(".chapter").forEach(ch => {
   ch.addEventListener("click", () => {
     if (!ch.dataset.time) return;
+
     const seconds = parseInt(ch.dataset.time, 10);
-    ytPlayer.seekTo(seconds, true);
-    ytPlayer.playVideo();
+
+    if (window.ytPlayer) {
+      ytPlayer.seekTo(seconds, true);
+      ytPlayer.playVideo();
+
+      // Update URL automatically
+      history.replaceState(null, "", "#t=" + seconds);
+    }
   });
 });
 </script>
