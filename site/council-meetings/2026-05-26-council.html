@@ -313,51 +313,63 @@
 
 </aside>
 
-<!-- YouTube scripts go HERE -->
+<!-- YouTube API -->
 <script src="https://www.youtube.com/iframe_api"></script>
+
 <script>
   let ytPlayer;
+
+  // YouTube API callback
   function onYouTubeIframeAPIReady() {
     ytPlayer = new YT.Player('meetingVideo');
   }
-</script>
 
-<script>
-document.querySelectorAll(".chapter").forEach(ch => {
-  ch.addEventListener("click", () => {
-    if (!ch.dataset.time) return;
+  // Everything else waits for DOM
+  document.addEventListener("DOMContentLoaded", () => {
 
-    const seconds = parseInt(ch.dataset.time, 10);
+    /* -----------------------------
+       CLICKABLE CHAPTERS
+    ------------------------------*/
+    document.querySelectorAll(".chapter").forEach(ch => {
+      ch.addEventListener("click", () => {
+        const t = ch.dataset.time;
+        if (!t || !ytPlayer || typeof ytPlayer.seekTo !== "function") return;
 
-    if (window.ytPlayer) {
-      ytPlayer.seekTo(seconds, true);
-      ytPlayer.playVideo();
+        const seconds = parseInt(t, 10);
 
-      // Delay URL update so it doesn't block the click
-      setTimeout(() => {
-        history.replaceState(null, "", "#t=" + seconds);
-      }, 150);
-    }
-  });
-});
-</script>
-
-
-<script>
-window.addEventListener("DOMContentLoaded", () => {
-  const hash = window.location.hash;
-  if (hash && hash.startsWith("#t=")) {
-    const seconds = parseInt(hash.replace("#t=", ""), 10);
-    const wait = setInterval(() => {
-      if (window.ytPlayer) {
+        // Jump video
         ytPlayer.seekTo(seconds, true);
         ytPlayer.playVideo();
-        clearInterval(wait);
-      }
-    }, 200);
-  }
-});
+
+        // SAFELY update URL after click completes
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            history.replaceState(null, "", "#t=" + seconds);
+          });
+        });
+      });
+    });
+
+    /* -----------------------------
+       LOAD TIMESTAMP FROM URL
+    ------------------------------*/
+    const hash = window.location.hash;
+    if (hash && hash.startsWith("#t=")) {
+      const seconds = parseInt(hash.replace("#t=", ""), 10);
+
+      // Wait for YouTube API to be ready
+      const wait = setInterval(() => {
+        if (ytPlayer && typeof ytPlayer.seekTo === "function") {
+          ytPlayer.seekTo(seconds, true);
+          ytPlayer.playVideo();
+          clearInterval(wait);
+        }
+      }, 200);
+    }
+
+  });
 </script>
 
 </body>
 </html>
+
