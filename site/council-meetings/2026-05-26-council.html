@@ -333,12 +333,15 @@ document.querySelectorAll(".chapter").forEach(ch => {
       ytPlayer.seekTo(seconds, true);
       ytPlayer.playVideo();
 
-      // Update URL automatically
-      history.replaceState(null, "", "#t=" + seconds);
+      // Delay URL update so it doesn't block the click
+      setTimeout(() => {
+        history.replaceState(null, "", "#t=" + seconds);
+      }, 150);
     }
   });
 });
 </script>
+
 
 <script>
 window.addEventListener("DOMContentLoaded", () => {
