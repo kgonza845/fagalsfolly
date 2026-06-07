@@ -310,31 +310,41 @@
     <div class="summary">Council President Carl Williams closed by first responding to anti-LGBTQ+ comments made earlier. Williams stated his clear and unequivocal support for the LGBTQIA+ community  and expressed enthusiasm for upcoming Pride celebrations. He thanked everyone who came out to speak, calling the meeting a reflection of democracy working. Williams reminded attendees that the public hearings will return to committee on Monday, where the opinions raised will be considered, and encouraged residents to stay engaged rather than rely on second- or third-hand accounts. He closed with a Memorial Day reflection. </div>
   </div>
 
+
 </aside>
 
-</main>
+<!-- YouTube scripts go HERE -->
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  let ytPlayer;
+  function onYouTubeIframeAPIReady() {
+    ytPlayer = new YT.Player('meetingVideo');
+  }
+</script>
 
 <script>
-  const video = document.getElementById("meetingVideo");
-
-  document.querySelectorAll(".chapter").forEach(ch => {
-    ch.addEventListener("click", () => {
-      if (!ch.dataset.time) return;
-      video.currentTime = ch.dataset.time;
-      video.play();
-    });
+document.querySelectorAll(".chapter").forEach(ch => {
+  ch.addEventListener("click", () => {
+    if (!ch.dataset.time) return;
+    const seconds = parseInt(ch.dataset.time, 10);
+    ytPlayer.seekTo(seconds, true);
+    ytPlayer.playVideo();
   });
+});
 </script>
 
 <script>
 window.addEventListener("DOMContentLoaded", () => {
-  const video = document.getElementById("meetingVideo");
   const hash = window.location.hash;
-
   if (hash && hash.startsWith("#t=")) {
     const seconds = parseInt(hash.replace("#t=", ""), 10);
-    video.currentTime = seconds;
-    video.play();
+    const wait = setInterval(() => {
+      if (window.ytPlayer) {
+        ytPlayer.seekTo(seconds, true);
+        ytPlayer.playVideo();
+        clearInterval(wait);
+      }
+    }, 200);
   }
 });
 </script>
