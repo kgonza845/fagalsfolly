@@ -114,49 +114,29 @@
 
 </aside>
 
-<!-- YouTube scripts go HERE -->
 <script src="https://www.youtube.com/iframe_api"></script>
+
 <script>
   let ytPlayer;
+
+  // Called by the YouTube API when it's ready
   function onYouTubeIframeAPIReady() {
     ytPlayer = new YT.Player('meetingVideo');
   }
-</script>
 
-<script>
-document.querySelectorAll(".chapter").forEach(ch => {
-  ch.addEventListener("click", () => {
-    if (!ch.dataset.time) return;
+  // Wire up chapter clicks once the DOM is ready
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".chapter").forEach(ch => {
+      ch.addEventListener("click", () => {
+        const t = ch.dataset.time;
+        if (!t || !ytPlayer || typeof ytPlayer.seekTo !== "function") return;
 
-    const seconds = parseInt(ch.dataset.time, 10);
-
-    if (window.ytPlayer) {
-      ytPlayer.seekTo(seconds, true);
-      ytPlayer.playVideo();
-
-      // Delay URL update so it doesn't block the click
-      setTimeout(() => {
-        history.replaceState(null, "", "#t=" + seconds);
-      }, 150);
-    }
-  });
-});
-</script>
-
-<script>
-window.addEventListener("DOMContentLoaded", () => {
-  const hash = window.location.hash;
-  if (hash && hash.startsWith("#t=")) {
-    const seconds = parseInt(hash.replace("#t=", ""), 10);
-    const wait = setInterval(() => {
-      if (window.ytPlayer) {
+        const seconds = parseInt(t, 10);
         ytPlayer.seekTo(seconds, true);
         ytPlayer.playVideo();
-        clearInterval(wait);
-      }
-    }, 200);
-  }
-});
+      });
+    });
+  });
 </script>
 
 </body>
