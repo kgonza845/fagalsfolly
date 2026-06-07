@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <title>City Council Committee Meeting – May 18, 2026</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="../style.css">
+</head>
+
+
+</body>
+
+
+<body class="committee">
+
+
+ <nav class="top-nav">
+   <a class="council" href="/council-meetings/">Council Meetings</a>
+   <a class="committee" href="/committee-meetings/">Committee Meetings</a>
+   <a class="newsletter" href="/newsletter">Newsletter</a>
+ </nav>
+
+
+<header>
+ <h1>City Council Committee Meeting – May 18, 2025</h1>
+ <p class><a href=https://www.cityofschenectady.gov/AgendaCenter/ViewFile/Agenda/_05182026-1425>Agenda</a>. Navigate the video via the time stamps below</p
+
+
+
+
+
+
+<main class="meeting-layout">
+
+
+<iframe
+  id="meetingVideo"
+  src="https://www.youtube.com/embed/wMskt_TEfZc?si=rE0VxH1sMpw1GZM8"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+></iframe>
+
+
+<!-- Chapters Sidebar -->
+<aside id="chapters">
+
+
+ <div class="chapter section-title">Call to Order</div>
+
+
+ <div class="chapter" data-time="1074">
+   <span class="time">17:54</span>
+   <span class="label">Call to order</span>
+ </div>
+
+
+ <div class="chapter section-title">Finance Committee</div>
+
+
+ <div class="chapter" data-time="1105">
+   <span class="time">18:25</span>
+   <span class="label">2026 Capital Budget Re-Appropriation</span>
+ </div>
+
+
+ <div class="chapter" data-time="1126">
+   <span class="time">21:06</span>
+   <span class="label">First Quarter Report - Fiscal Year 2026 & Status of Audit</span>
+ </div>
+
+ <div class="chapter" data-time="2553">
+   <span class="time">42:33</span>
+   <span class="label">Review - Regarding the 2026-2027 Annual Action Plan for HUD funds (Public Hearing was on May 26, 2026)</span>
+ </div>
+
+  <div class="chapter" data-time="2655">
+   <span class="time">44:15</span>
+   <span class="label">Review - Amending Section 186-25 "Central Park: Tennis Courts" Fee and Reservation System (Public Hearing was on May 26, 2026)</span>
+ </div>
+
+
+   <div class="chapter section-title">Government Operation</div>
+
+
+ <div class="chapter" data-time="5068">
+   <span class="time">1:24:38</span>
+   <span class="label">Discussion - Adopting a Community Police Hiring Panel</span>
+ </div>
+
+  <div class="chapter" data-time="5402">
+   <span class="time">1:30:02</span>
+   <span class="label">Ceremonial Resolution — Recognizing the Celebration of Juneteenth 2026</span>
+ </div>
+
+
+   <div class="chapter section-title">City Development & Planning</div>
+
+
+ <div class="chapter" data-time="5452">
+   <span class="time">1:30:52</span>
+   <span class="label">Review - Amending Chapter 161 of the Schenectady City Code "Garbage, Rubbish, and Refuse" Regarding the Requirements and Standards for the Collection of Solid Wastes and Recyclables and the Setting of Rates and Penalties (PH was on May 26, 2026)</span>
+ </div>
+
+
+ <div class="chapter section-title">Remaining Items to Executive Session</div>
+
+   <div class="chapter" data-time="7527">
+   <span class="time">2:05:27</span>
+   <span class="label">Motion to enter Exeuctive Session</span>
+ </div>
+
+
+</aside>
+
+
+
+
+
+
+<script>
+ const video = document.getElementById("meetingVideo");
+
+
+ document.querySelectorAll(".chapter").forEach(ch => {
+   ch.addEventListener("click", () => {
+     if (!ch.dataset.time) return; // ignore section titles
+     video.currentTime = ch.dataset.time;
+     video.play();
+   });
+ });
+</script>
+
+
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+ const video = document.getElementById("meetingVideo");
+ const hash = window.location.hash;
+
+
+ if (hash && hash.startsWith("#t=")) {
+   const seconds = parseInt(hash.replace("#t=", ""), 10);
+   video.currentTime = seconds;
+   video.play();
+ }
+});
+</script>
+
+
+</body>
+</html>
+
+
+
