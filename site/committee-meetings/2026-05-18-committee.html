@@ -34,11 +34,15 @@
 
 
 <div id="player-container" class="video-wrapper">
- <video id="meetingVideo" controls>
-   <source src="https://archive.org/download/schenectady-city-council-meeting-05-18-2026/videoplayback%20(1).mp4">
-   Your browser does not support the video tag.
- </video>
-</div>
+  <iframe
+    id="meetingVideo"
+    src="https://www.youtube.com/embed/QpqW5o1hK-k?si=rs35xW49aQc5L8v-&enablejsapi=1"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>>
 
 
 <!-- Chapters Sidebar -->
@@ -65,7 +69,7 @@
 
  <div class="chapter" data-time="1126">
    <span class="time">18:46</span>
-   <span class="label">Contract with Quake Technologies. Schenectady would be 10th City in country to contract Quake for their emerging tech which includes a a helmet-mounted augemented reality system for firefighters. It's designed to provide firefighters with real-time infomration about a scene. Council discussed cost, firefighter safety, and data privacy concerns. </span>
+   <span class="label">Contract with Qwake Technologies. Schenectady would be 10th City in country to contract Quake for their emerging tech which includes a a helmet-mounted augemented reality system for firefighters. It's designed to provide firefighters with real-time infomration about a scene. Council discussed cost, firefighter safety, and data privacy concerns. </span>
  </div>
 
 
@@ -231,42 +235,65 @@ amount of $284,174.00</span>
 
 </aside>
 
+<script src="https://www.youtube.com/iframe_api"></script>
 
-
-
-
-
-<script>
- const video = document.getElementById("meetingVideo");
-
-
- document.querySelectorAll(".chapter").forEach(ch => {
-   ch.addEventListener("click", () => {
-     if (!ch.dataset.time) return; // ignore section titles
-     video.currentTime = ch.dataset.time;
-     video.play();
-   });
- });
-</script>
-
+<!-- YouTube API -->
+<script src="https://www.youtube.com/iframe_api"></script>
 
 <script>
-window.addEventListener("DOMContentLoaded", () => {
- const video = document.getElementById("meetingVideo");
- const hash = window.location.hash;
+  let ytPlayer;
 
+  // YouTube API callback
+  function onYouTubeIframeAPIReady() {
+    ytPlayer = new YT.Player('meetingVideo');
+  }
 
- if (hash && hash.startsWith("#t=")) {
-   const seconds = parseInt(hash.replace("#t=", ""), 10);
-   video.currentTime = seconds;
-   video.play();
- }
-});
+  // Everything else waits for DOM
+  document.addEventListener("DOMContentLoaded", () => {
+
+    /* -----------------------------
+       CLICKABLE CHAPTERS
+    ------------------------------*/
+    document.querySelectorAll(".chapter").forEach(ch => {
+      ch.addEventListener("click", () => {
+        const t = ch.dataset.time;
+        if (!t || !ytPlayer || typeof ytPlayer.seekTo !== "function") return;
+
+        const seconds = parseInt(t, 10);
+
+        // Jump video
+        ytPlayer.seekTo(seconds, true);
+        ytPlayer.playVideo();
+
+        // SAFELY update URL after click completes
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            history.replaceState(null, "", "#t=" + seconds);
+          });
+        });
+      });
+    });
+
+    /* -----------------------------
+       LOAD TIMESTAMP FROM URL
+    ------------------------------*/
+    const hash = window.location.hash;
+    if (hash && hash.startsWith("#t=")) {
+      const seconds = parseInt(hash.replace("#t=", ""), 10);
+
+      // Wait for YouTube API to be ready
+      const wait = setInterval(() => {
+        if (ytPlayer && typeof ytPlayer.seekTo === "function") {
+          ytPlayer.seekTo(seconds, true);
+          ytPlayer.playVideo();
+          clearInterval(wait);
+        }
+      }, 200);
+    }
+
+  });
 </script>
 
 
 </body>
 </html>
-
-
-
